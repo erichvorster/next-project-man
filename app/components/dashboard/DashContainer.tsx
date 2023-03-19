@@ -1,4 +1,5 @@
 import React from "react";
+import { NavContext } from "@/app/context/NavContext";
 
 type AppProps = {
   children: React.ReactNode;
@@ -12,7 +13,9 @@ const DashContainer = ({ children, navTab }: AppProps) => {
         navTab === 0 ? "left-20" : "left-[288px]"
       } z-0 transition-all ease-in-out`}
     >
-      <div className="bg-neutral-900 relative z-10 w-full h-full rounded-lg p-4">{children}</div>
+      <div className="bg-neutral-900 relative z-10 w-full h-full rounded-lg p-4">
+        <NavContext.Provider value={navTab}>{children}</NavContext.Provider>
+      </div>
     </div>
   );
 };

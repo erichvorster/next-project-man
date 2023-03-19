@@ -11,7 +11,7 @@ import {
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 import CasesNav from "./CasesNav";
 
 type AppProps = {
@@ -30,19 +30,23 @@ const SideNav = ({ setNavTab, navTab }: AppProps) => {
             </div>
           </li>
           <li>
-            <Link href="/">
-            <BriefcaseIcon
-              onClick={() => setNavTab(1)}
-              className="text-neutral-800 h-8 w-8 cursor-pointer hover:text-neutral-300 transition-all ease-in-out"
-            />
+            <Link href="/cases">
+              <BriefcaseIcon
+                onClick={() => setNavTab(1)}
+                className={`${
+                  navTab === 1 ? "text-neutral-300 " : "text-neutral-800"
+                } h-8 w-8 cursor-pointer hover:text-neutral-300 transition-all ease-in-out `}
+              />
             </Link>
           </li>
           <li>
             <Link href="/messages">
-            <ChatBubbleOvalLeftIcon
-              onClick={() => setNavTab(2)}
-              className="text-neutral-800 h-8 w-8 cursor-pointer hover:text-neutral-300 transition-all ease-in-out"
-            />
+              <ChatBubbleOvalLeftIcon
+                onClick={() => setNavTab(2)}
+                className={`${
+                  navTab === 2 ? "text-neutral-300 " : "text-neutral-800"
+                } h-8 w-8 cursor-pointer hover:text-neutral-300 transition-all ease-in-out`}
+              />
             </Link>
           </li>
           <li>
@@ -79,9 +83,7 @@ const SideNav = ({ setNavTab, navTab }: AppProps) => {
         {(() => {
           switch (navTab) {
             case 1:
-              return (
-                <CasesNav/>
-              );
+              return <CasesNav />;
             case 2:
               return (
                 <ul className="h-72 flex flex-col justify-between w-52 pl-8">
