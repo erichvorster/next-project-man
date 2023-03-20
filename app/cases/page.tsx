@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import NoCases from "../components/cases/NoCases";
 import { useContext } from "react";
 import { NavContext } from "../context/NavContext";
+import HasCases from "../components/cases/HasCases";
 
 const pages = () => {
   const [caseModal, setCaseModal] = useState(false);
@@ -20,12 +21,14 @@ const pages = () => {
 
   return (
     <div>
-      <NoCases
+      {/* <NoCases
         caseModal={caseModal}
         openModal={openModal}
         closeModal={closeModal}
         navTab={navTab}
-      />
+      /> */}
+      <HasCases/>
+
     </div>
   );
 };
