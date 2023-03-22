@@ -18,7 +18,7 @@ const CasesKanban = () => {
         <div className="flex justify-between px-8">
           {state.columnOrder.map((columnId:any) => {
             const column = state.columns[columnId];
-            const tasks = column.taskIds.map(taskId => state.tasks[taskId]);
+            const tasks = column.taskIds.map((taskId:any) => state.tasks[taskId]);
 
             return <Column key={columnId.id} column={column} tasks={tasks}/>
           })}
@@ -32,6 +32,17 @@ const CasesKanban = () => {
 };
 
 export default CasesKanban;
+
+type initialData = {
+  tasks: {
+    number:{id:number, content:string}
+  },
+  columns:{
+    "column-1":{
+      id:string
+    }
+  }
+}
 
 const initialData = {
   tasks: {
